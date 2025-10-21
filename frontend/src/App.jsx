@@ -1,33 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ResultProvider } from './context/ResultContext';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import UploadPage from './pages/UploadPage';
-import ResultPage from './pages/ResultPage';
-import SuggestionsPage from './pages/SuggestionsPage';
-import DoctorsPage from './pages/DoctorsPage';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import ScanEye from "./pages/ScanEye";
+import Results from "./pages/Results";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <ResultProvider>
-      <Router>
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-          <Navbar />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/upload" element={<UploadPage />} />
-              <Route path="/result/:scanId" element={<ResultPage />} />
-              <Route path="/suggestions/:problem" element={<SuggestionsPage />} />
-              <Route path="/doctors/:city" element={<DoctorsPage />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </ResultProvider>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/scan" element={<ScanEye />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

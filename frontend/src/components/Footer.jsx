@@ -1,106 +1,196 @@
-import { Link } from 'react-router-dom';
-import { Eye, Heart, Mail, Phone, MapPin } from 'lucide-react';
+import React from "react";
+import { Eye, Shield, Users, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowUp } from "lucide-react";
 
-const Footer = () => {
+export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <Eye className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">EyeAI</span>
-            </div>
-            <p className="text-gray-300 mb-4 max-w-md">
-              Advanced AI-powered eye problem detection system. Get instant analysis of your retina images 
-              and connect with the best eye specialists in your area.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <span className="sr-only">Facebook</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <span className="sr-only">Twitter</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <span className="sr-only">LinkedIn</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+    <footer className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-10 left-10 w-32 h-32 border border-blue-400 rounded-full animate-pulse"></div>
+        <div className="absolute top-32 right-20 w-24 h-24 border border-cyan-400 rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/3 w-28 h-28 border border-purple-400 rounded-full animate-pulse delay-500"></div>
+      </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/upload" className="text-gray-300 hover:text-white transition-colors">
-                  Scan Eye
-                </Link>
-              </li>
-              <li>
-                <Link to="/doctors/mumbai" className="text-gray-300 hover:text-white transition-colors">
-                  Find Doctors
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin" className="text-gray-300 hover:text-white transition-colors">
-                  Admin Panel
-                </Link>
-              </li>
-            </ul>
-          </div>
+      <div className="relative z-10">
+        {/* Main Footer Content */}
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            
+            {/* Brand Section */}
+            <div className="lg:col-span-1">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="bg-gradient-to-r from-cyan-400 to-blue-500 p-3 rounded-xl shadow-lg">
+                  <Eye className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    EyeCare AI
+                  </h3>
+                  <p className="text-sm text-gray-300">Advanced Vision Care</p>
+                </div>
+              </div>
+              <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                Revolutionizing eye care with cutting-edge AI technology. Early detection, accurate diagnosis, and personalized treatment plans for optimal vision health.
+              </p>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                  <Shield className="w-4 h-4 text-green-400" />
+                  <span>HIPAA Compliant</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm text-gray-300">
+                  <Users className="w-4 h-4 text-blue-400" />
+                  <span>50K+ Users</span>
+                </div>
+              </div>
+            </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300">support@eyeai.com</span>
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6 text-white">Services</h4>
+              <ul className="space-y-3">
+                {[
+                  "Diabetic Retinopathy Detection",
+                  "Glaucoma Screening",
+                  "Macular Degeneration Analysis",
+                  "Cataract Assessment",
+                  "Vision Risk Assessment",
+                  "AI-Powered Diagnosis"
+                ].map((service, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-sm flex items-center group">
+                      <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-300"></span>
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6 text-white">Resources</h4>
+              <ul className="space-y-3">
+                {[
+                  "Documentation",
+                  "API Reference",
+                  "Research Papers",
+                  "Case Studies",
+                  "Training Materials",
+                  "Support Center"
+                ].map((resource, index) => (
+                  <li key={index}>
+                    <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 text-sm flex items-center group">
+                      <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3 group-hover:bg-white transition-colors duration-300"></span>
+                      {resource}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="text-lg font-semibold mb-6 text-white">Contact Us</h4>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-300">
+                  <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                  <a href="mailto:support@eyecareai.com" className="text-sm">support@eyecareai.com</a>
+                </div>
+                <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-300">
+                  <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                  <a href="tel:+1-800-EYECARE" className="text-sm">+1 (800) EYE-CARE</a>
+                </div>
+                <div className="flex items-start space-x-3 text-gray-300">
+                  <MapPin className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm">123 Medical Plaza, Healthcare District, CA 90210</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300">+91 98765 43210</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-blue-400" />
-                <span className="text-gray-300">Mumbai, Maharashtra</span>
+
+              {/* Social Links */}
+              <div className="mt-8">
+                <h5 className="text-sm font-semibold mb-4 text-white">Follow Us</h5>
+                <div className="flex space-x-4">
+                  {[
+                    { icon: Facebook, label: "Facebook" },
+                    { icon: Twitter, label: "Twitter" },
+                    { icon: Instagram, label: "Instagram" },
+                    { icon: Linkedin, label: "LinkedIn" }
+                  ].map((social, index) => (
+                    <a
+                      key={index}
+                      href="#"
+                      className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-110 group"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 EyeAI. All rights reserved.
-          </p>
-          <div className="flex items-center space-x-2 text-gray-400 text-sm mt-4 md:mt-0">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-red-500" />
-            <span>for better eye health</span>
+        {/* Bottom Section */}
+        <div className="border-t border-slate-700/50">
+          <div className="max-w-7xl mx-auto px-6 py-8">
+            <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+              <div className="text-center lg:text-left">
+                <p className="text-gray-300 text-sm">
+                  © {new Date().getFullYear()} EyeCare AI. All rights reserved.
+                </p>
+                <p className="text-gray-400 text-xs mt-1">
+                  Empowering healthcare professionals with AI-driven eye care solutions.
+                </p>
+              </div>
+              
+              <div className="flex flex-wrap justify-center lg:justify-end items-center space-x-6 text-sm">
+                <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">Privacy Policy</a>
+                <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">Terms of Service</a>
+                <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">GDPR</a>
+                <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300">Accessibility</a>
+              </div>
+
+              {/* Back to Top */}
+              <button
+                onClick={scrollToTop}
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-xl"
+                aria-label="Back to top"
+              >
+                <ArrowUp className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="border-t border-slate-700/30">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="flex flex-wrap justify-center items-center space-x-8 text-xs text-gray-400">
+              <span className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+                <span>FDA Approved</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                <span>ISO 27001 Certified</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+                <span>SOC 2 Type II</span>
+              </span>
+              <span className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                <span>99.9% Uptime</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer; 
+}
